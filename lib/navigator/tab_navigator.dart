@@ -24,7 +24,12 @@ class _TabNavigatorState extends State<TabNavigator> {
         children: const [HomePage(), SearchPage(), TravelPage(), MyPage()],
       ),
       bottomNavigationBar: BottomNavigationBar(
-        items: _bottoms(),
+        items: [
+          _bottoms("Home", Icons.home, 0),
+          _bottoms("Search", Icons.search, 1),
+          _bottoms("Travel", Icons.camera_alt, 2),
+          _bottoms("Mine", Icons.account_circle, 3),
+        ],
         currentIndex: _index,
         onTap: (index) {
           _index = index;
@@ -32,10 +37,23 @@ class _TabNavigatorState extends State<TabNavigator> {
         },
         type: BottomNavigationBarType.fixed,
       ),
+      // /v1/ticker step=60 symbol=btc_usdt
     );
-  }
+  } //https://api.hotcoinfin.com/v1/ticker?step=60&symbol=btc_usdt
 
   final _dcl = Colors.grey;
-  final _cl = Colors.blue;
-  _bottoms() {}
+  final _activeCol = Colors.blue;
+  _bottoms(String title, IconData icon, int index) {
+    return BottomNavigationBarItem(
+      icon: Icon(
+        icon,
+        color: _dcl,
+      ),
+      activeIcon: Icon(
+        icon,
+        color: _activeCol,
+      ),
+      label: title,
+    );
+  }
 }

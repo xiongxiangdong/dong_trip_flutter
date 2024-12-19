@@ -23,6 +23,6 @@ class _HomePageState extends State<HomePage> {
 
   _loginOut() {
     return const ElevatedButton(
-        onPressed: LoginDao.logOut, child: Text("Login Out"));
+        onPressed: LoginDao.getKline, child: Text("Login Out"));
   }
 }

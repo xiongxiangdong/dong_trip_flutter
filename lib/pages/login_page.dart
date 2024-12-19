@@ -5,7 +5,6 @@ import 'package:trip_flutter/widget/input_widget.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../util/margin.dart';
-import '../util/navigator_util.dart';
 import '../widget/login_widget2.dart';
 
 class LoginPage extends StatefulWidget {
@@ -113,8 +112,9 @@ class _LoginPageState extends State<LoginPage> {
   _login(context) async {
     try {
       //dong 123456
-      LoginDao.login(name: name, pwd: pwd);
-      NavigatorUtil.goToHome(context);
+      LoginDao.getKline();
+      //LoginDao.login(name: name, pwd: pwd);
+      //NavigatorUtil.goToHome(context);
     } catch (e) {
       print(e);
     }
