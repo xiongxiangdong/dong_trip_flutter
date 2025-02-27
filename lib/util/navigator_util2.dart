@@ -1,21 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:trip_flutter/pages/home_page.dart';
-import 'package:trip_flutter/pages/login_page.dart';
 
-class NavigatorUtil {
+import '../pages/home_page3.dart';
+import '../pages/login_page2.dart';
+
+class NavigatorUtil2 {
   static BuildContext? _context;
 
-  static updateContext(BuildContext context) {
-    NavigatorUtil._context = context;
+  static setContext(BuildContext ct) {
+    _context = ct;
   }
 
-  static goToLogin(BuildContext context) {
-    Navigator.push(
-        context, MaterialPageRoute(builder: (context) => const LoginPage()));
+  static push(BuildContext context, Widget page) {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => page));
   }
 
-  static goToHome() {
+  static goLogin() {
     Navigator.pushReplacement(
-        _context!!, MaterialPageRoute(builder: (context) => const HomePage()));
+        _context!, MaterialPageRoute(builder: (context) => const LoginPage2()));
+  }
+
+  static goToHome(BuildContext context) {
+    //不返回
+    Navigator.pushReplacement(
+        context, MaterialPageRoute(builder: (context) => const HomePage3()));
   }
 }

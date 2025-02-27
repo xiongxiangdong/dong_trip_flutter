@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:flutter_hi_cache/flutter_hi_cache.dart';
 import 'package:http/http.dart' as http;
 
-import '../data/DataModel.dart';
 import '../util/navigator_util.dart';
 import 'header_util.dart';
 
@@ -43,11 +42,11 @@ class LoginDao {
       var result = json.decode(bodyString);
 
       Map<String, List<dynamic>> res = result['ticker'];
-      List<Kline> personList =
+      /*List<Kline> personList =
           res.map((json) => Kline(json['symbol'], json['last'])).toList();
       for (Kline kline in personList) {
         print(kline.buy);
-      }
+      }*/
     } else {}
   }
 

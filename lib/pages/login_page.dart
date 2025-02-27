@@ -5,7 +5,7 @@ import 'package:trip_flutter/widget/input_widget.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../util/margin.dart';
-import '../widget/login_widget2.dart';
+import '../widget/login_widget.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -74,7 +74,7 @@ class _LoginPageState extends State<LoginPage> {
               },
             ),
             getMargin(height: 35),
-            LoginWidget2(
+            LoginWidget(
               "Login",
               enableLogin: enLogin,
               //() => ??1

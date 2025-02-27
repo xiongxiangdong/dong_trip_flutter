@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hi_cache/flutter_hi_cache.dart';
-import 'package:trip_flutter/navigator/tab_navigator.dart';
-import 'package:trip_flutter/pages/login_page.dart';
+import 'package:trip_flutter/pages/login_page2.dart';
+import 'package:trip_flutter/util/screen_adapter_helper.dart';
 
-import 'dao/login_dao.dart';
+import 'dao/login_dao3.dart';
+import 'navigator/tab_navigator2.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,24 +22,29 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: FutureBuilder(
-            future: HiCache.preInit(),
-            builder: (context, AsyncSnapshot<dynamic> snapshot) {
-              if (snapshot.connectionState == ConnectionState.done) {
-                if (LoginDao.getBoardingPass() == null) {
-                  return const LoginPage();
-                } else {
-                  return const TabNavigator();
-                  //return const HomePage();
-                }
-              } else {
-                return const Scaffold(
-                  body: Center(
-                    child: CircularProgressIndicator(),
-                  ),
-                );
-              }
-            }));
+        home: _getData(context));
+  }
+
+  Widget _getData(context) {
+    return FutureBuilder<dynamic>(
+        future: HiCache.preInit(),
+        builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
+          ScreenHelper.init(context);
+          if (snapshot.connectionState == ConnectionState.done) {
+            if (LoginDao3.getBorder() != null) {
+              //return const HomePage3();
+              return const TabNavigator2();
+            } else {
+              return const LoginPage2();
+            }
+          } else {
+            return const Scaffold(
+              body: Center(
+                child: CircularProgressIndicator(),
+              ),
+            );
+          }
+        });
   }
 }
 
