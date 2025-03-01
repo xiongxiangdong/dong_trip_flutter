@@ -150,6 +150,8 @@ class _SearchBarWidgetState extends State<SearchBarWidget> {
   get _textField => widget.searchBarType == SearchBarType.normal
       ? TextField(
           controller: _textEditingController,
+          cursorColor: Colors.blue,
+          cursorHeight: 15,
           style: const TextStyle(
               color: Colors.black, fontWeight: FontWeight.w300, fontSize: 15),
           autofocus: true,

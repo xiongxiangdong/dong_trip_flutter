@@ -104,6 +104,12 @@ class _HomePage3State extends State<HomePage3> {
             SalesBoxWidget(
               salesBox: salesBoxModel!,
             ),
+          const SizedBox(
+            height: 800,
+            child: ListTile(
+              title: Text('哈哈'),
+            ),
+          ),
         ],
       );
 

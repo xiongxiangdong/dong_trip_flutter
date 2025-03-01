@@ -24,4 +24,11 @@ class NavigatorUtil2 {
     Navigator.pushReplacement(
         context, MaterialPageRoute(builder: (context) => const HomePage3()));
   }
+
+  //返回上一页
+  static void pop(BuildContext context) {
+    if (Navigator.canPop(context)) {
+      Navigator.pop(context);
+    }
+  }
 }
