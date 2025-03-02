@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../pages/home_page3.dart';
 import '../pages/login_page2.dart';
@@ -29,6 +30,8 @@ class NavigatorUtil2 {
   static void pop(BuildContext context) {
     if (Navigator.canPop(context)) {
       Navigator.pop(context);
+    } else {
+      SystemNavigator.pop();
     }
   }
 }
